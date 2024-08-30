@@ -21,6 +21,15 @@ h6 {
   margin: 0;
 }
 
+hr {
+  display: block;
+  width: 100%;
+  height: 1px;
+  border: 0;
+  background-color: #e5e5e5;
+  margin: 40px 0;
+}
+
 .container {
   width: 100%;
   max-width: 1200px;
@@ -217,6 +226,13 @@ h6 {
 .section {
   padding: 80px 0;
 }
+.section-devices {
+  background: url("../images/bac-feauture.jpg") center no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  padding-bottom: 0;
+  margin-bottom: 40px;
+}
 
 .container {
 }
@@ -224,7 +240,7 @@ h6 {
 .sectiom-header {
   width: 100%;
   max-width: 950px;
-  margin: 0 auto 40px;
+  margin: 0 auto 50px;
   text-align: center;
 }
 
@@ -308,4 +324,87 @@ h6 {
   transform: translate3d(0, -50%, 0);
 
   transition: opacity 0.2s linear;
+}
+
+/* Statistics */
+.statistics {
+  background-color: #95e1d3;
+}
+
+.stat {
+  display: flex;
+}
+
+.stat-item {
+  flex: 1 1 0;
+  border-left: 1px solid #b5eae0;
+  text-align: center;
+  color: #fff;
+  padding: 70px 25px;
+}
+
+.stat-item:last-child {
+  border-right: 1px solid #b5eae0;
+}
+
+.stat-count {
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.stat-text {
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+/* Services */
+.services {
+  display: flex;
+}
+
+.services-item {
+  flex: 1 1 0;
+  position: relative;
+  padding-right: 35px;
+  padding-left: 85px;
+}
+
+.services-icon {
+  position: absolute;
+  top: 0;
+  left: 28px;
+  z-index: 1;
+}
+
+.services-title {
+  font-size: 14px;
+  color: #333;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.services-text {
+  font-size: 15px;
+  color: #999;
+}
+
+/* Devices */
+.devices {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.devices-item {
+  display: block;
+}
+
+.devices-item-iphone {
+  position: absolute;
+  bottom: -80px;
+  right: 0;
+  z-index: 1;
 }
