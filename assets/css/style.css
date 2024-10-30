@@ -347,7 +347,6 @@ hr {
   width: 55px;
   height: 55px;
   padding: 12px;
-  z-index: 1;
 }
 
 .card-icon:hover {
@@ -963,6 +962,14 @@ hr {
   font-size: 22px;
 }
 
+.footer-social-content a i {
+  transition: color 0.5s ease;
+}
+
+.footer-social-content a:hover i {
+  color: #28a08a;
+}
+
 .footer-inner {
   display: flex;
   justify-content: space-between;
@@ -978,7 +985,7 @@ hr {
 }
 
 .footer-col-third {
-  width: 22%;
+  width: 23%;
 }
 
 .footer-title {
@@ -991,6 +998,7 @@ hr {
 /* Blogs */
 .blogs-item {
   display: flex;
+  align-items: center;
   margin-bottom: 30px;
 }
 
@@ -1004,10 +1012,13 @@ hr {
 }
 
 .blogs-title {
+  display: block;
   color: #333;
   font-size: 12px;
   text-transform: uppercase;
   text-decoration: none;
+  line-height: 1.5;
+  margin-bottom: 5px;
 }
 
 .blogs-title:hover {
@@ -1019,6 +1030,22 @@ hr {
   color: #999;
   font-style: italic;
   font-weight: 300;
+}
+
+/* Instagram */
+
+.instagram {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.instagram-item {
+  width: 32.33%;
+  border-bottom: 1px solid #fff;
+}
+
+.instagram-item img {
+  display: block;
 }
 
 /* Subscribe */
@@ -1077,4 +1104,17 @@ hr {
 
 .subscribe-btn:hover {
   background-color: #28a08a;
+}
+
+/* Copyright */
+.copyright {
+  padding: 20px 0;
+  border: 1px solid #e5e5e5;
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+}
+
+.copyright span {
+  color: #f38181;
 }
