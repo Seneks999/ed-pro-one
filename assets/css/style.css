@@ -30,14 +30,19 @@ hr {
   margin: 40px 0;
 }
 
+/* Page */
+.page {
+  overflow: hidden;
+}
+
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1230px;
   margin: 0 auto;
+  padding: 0 15px;
 }
 
 /* Intro */
-
 .intro {
   display: flex;
   flex-direction: column;
@@ -45,6 +50,8 @@ hr {
 
   width: 100%;
   height: 100vh;
+  min-height: 820px;
+  position: relative;
 
   background: url(../images/mogo-ground-intro.jpg) center no-repeat;
   -webkit-background-size: cover;
@@ -52,7 +59,6 @@ hr {
 }
 
 /* Header */
-
 .header {
   width: 100%;
   position: absolute;
@@ -61,6 +67,22 @@ hr {
   left: 0;
   right: 0;
   z-index: 1000;
+}
+
+.header.fixed {
+  background-color: #eb8b8d;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  transform: translate3d(0, 0, 0);
+}
+
+.header.active {
+  background-color: #eb8b8d;
 }
 
 .header-inner {
@@ -85,7 +107,6 @@ hr {
 }
 
 /* Navigation */
-
 .nav {
   font-size: 14px;
   text-transform: uppercase;
@@ -116,9 +137,7 @@ hr {
   top: 100%;
   left: 0;
   z-index: 1;
-
-  opacity: 0; /* Замість display: none; */
-  /* display: none; */
+  opacity: 0;
   transition: opacity 0.1s linear;
 }
 
@@ -128,10 +147,83 @@ hr {
 
 .nav-link:hover::after,
 .nav-link.active::after {
-  opacity: 1; /* Замість display: block; */
-  /* display: block; */
+  opacity: 1;
 }
 
+/* Nav toggle */
+.nav-toggle {
+  width: 30px;
+  padding: 10px 0;
+  display: none;
+
+  font-size: 0;
+  color: transparent;
+
+  border: 0;
+  background: none;
+  cursor: pointer;
+
+  position: absolute;
+  top: 24px;
+  right: 24px;
+
+  z-index: 1;
+}
+
+.nav-toggle-item {
+  display: block;
+  width: 100%;
+  height: 3px;
+
+  background-color: #fff;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+
+  transition: background-color 0.2s linear;
+}
+
+.nav-toggle.active .nav-toggle-item {
+  background: none;
+}
+
+.nav-toggle-item::before,
+.nav-toggle-item::after {
+  content: "";
+  width: 100%;
+  height: 3px;
+
+  background-color: #fff;
+
+  position: absolute;
+  left: 0;
+  z-index: 1;
+
+  transition: transform 0.2s linear;
+}
+
+.nav-toggle-item::before {
+  top: -8px;
+}
+
+.nav-toggle-item::after {
+  bottom: -8px;
+}
+
+.nav-toggle.active .nav-toggle-item::before {
+  transform-origin: left top;
+  transform: rotate(45deg) translate3d(0px, -3px, 0);
+}
+
+.nav-toggle.active .nav-toggle-item::after {
+  transform-origin: left bottom;
+  transform: rotate(-45deg) translate3d(0px, 3px, 0);
+}
+
+/* Intro */
 .intro-inner {
   width: 100%;
   max-width: 840px;
@@ -148,14 +240,13 @@ hr {
 }
 
 .intro-title {
-  font-size: 120px;
+  font-size: 150px;
   font-weight: 700;
   text-transform: uppercase;
   line-height: 1;
 }
 
 /* Button */
-
 .btn {
   display: inline-block;
   vertical-align: top;
@@ -175,7 +266,6 @@ hr {
 }
 
 /* Slider */
-
 .slider {
   width: 100%;
   position: absolute;
@@ -222,7 +312,6 @@ hr {
 }
 
 /* Section */
-
 .section {
   padding: 80px 0;
 }
@@ -272,18 +361,20 @@ hr {
 
 /* About */
 .card {
-  margin-top: 80px;
+  margin: 80px -15px 0;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
 .card-item {
-  width: 380px;
-  position: relative;
-  background-color: #95e1d3;
+  width: 33.33%;
+  padding: 0 15px;
 }
 
 .card-inner {
+  position: relative;
+  background-color: #95e1d3;
 }
 
 .card-item:hover .card-img {
@@ -306,6 +397,8 @@ hr {
 
 .card-img img {
   display: block;
+  max-width: 100%;
+  height: auto;
   transition: opacity 0.1s linear;
 }
 
@@ -330,9 +423,6 @@ hr {
   display: flex;
   margin: 0 auto;
   justify-content: center;
-  /* align-items: center;
-  margin: 0 auto;
-  height: 100%; */
 }
 
 .link-icon1 {
@@ -384,6 +474,7 @@ hr {
 
 .stat {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .stat-item {
@@ -413,13 +504,18 @@ hr {
 /* Services */
 .services {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .services-item {
-  flex: 1 1 0;
+  width: 33.33%;
+  padding: 0 35px 40px 85px;
   position: relative;
-  padding-right: 35px;
-  padding-left: 85px;
+  margin-bottom: 40px;
+}
+
+.services-item-border {
+  border-bottom: 1px solid #e5e5e5;
 }
 
 .services-icon {
@@ -451,6 +547,8 @@ hr {
 
 .devices-item {
   display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 .devices-item-iphone {
@@ -463,14 +561,22 @@ hr {
 /* we do */
 .wedo {
   display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
 }
 
 .wedo-item {
   width: 50%;
+  padding: 0 15px;
+}
+
+.wedo-img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 /* accordion */
-
 .accordion-item {
   border: 1px solid #e5e5e5;
   margin-bottom: 10px;
@@ -564,12 +670,22 @@ hr {
   position: relative;
 }
 .reviews-item-photo {
+  display: block;
   border: 2px solid #95e1d3;
   position: absolute;
   top: 0;
   left: 0;
   z-index: 1;
 }
+
+.reviews-item-photo-author {
+  border: none;
+}
+
+.author-item-photo {
+  border: none;
+}
+
 .reviews-item-text {
   font-size: 24px;
   font-style: italic;
@@ -577,11 +693,21 @@ hr {
   color: #999;
   margin-bottom: 15px;
 }
+
+.reviews-item-text-author {
+  padding-left: 40px;
+  padding-top: 42px;
+}
+
 .reviews-author {
   font-size: 24px;
 
   color: #333;
   font-family: "Kaushan Script", cursive;
+}
+
+.reviews-author-author {
+  padding-left: 40px;
 }
 
 .reviews-author::before {
@@ -630,6 +756,17 @@ hr {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0 15px;
+}
+
+.logos-item {
+  padding: 0 15px;
+}
+
+.logos-img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 /* Works */
@@ -776,6 +913,7 @@ hr {
 /* Blog */
 .blog {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
@@ -860,7 +998,6 @@ hr {
 
 .fa-solid.fa-eye {
   color: #95e1d3;
-  /* font-weight: 700; */
 }
 
 .fa-solid.fa-comment-dots {
@@ -872,7 +1009,6 @@ hr {
   padding: 40px 0;
   background: #e6e6e6 url("../images/map-bg.jpg") center no-repeat;
   margin-top: 60px;
-  /* background-size: cover; */
 }
 
 .map {
@@ -972,8 +1108,14 @@ hr {
 
 .footer-inner {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+  margin: 0 -15px;
   padding-bottom: 66px;
+}
+
+.footer-col {
+  padding: 0 15px;
 }
 
 .footer-col-first {
@@ -1033,19 +1175,21 @@ hr {
 }
 
 /* Instagram */
-
 .instagram {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .instagram-item {
-  width: 32.33%;
+  width: 33%;
   border-bottom: 1px solid #fff;
 }
 
 .instagram-item img {
   display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 /* Subscribe */
@@ -1117,4 +1261,437 @@ hr {
 
 .copyright span {
   color: #f38181;
+}
+
+/* ======================== 1230 =========================*/
+@media (max-width: 1230px) {
+  /* Intro */
+  .intro-suptitle {
+    font-size: 52px;
+  }
+
+  .intro-title {
+    font-size: 120px;
+  }
+
+  /* Reviews */
+  .reviews-item-text {
+    font-size: 20px;
+  }
+
+  /* Autor */
+  .section-gray-author {
+    padding-top: 0;
+  }
+
+  .reviews-item-text-author {
+    padding-top: 0;
+    padding-left: 70px;
+  }
+
+  .reviews-author-author {
+    padding-left: 70px;
+  }
+}
+
+/* ======================== 990 =========================*/
+@media (max-width: 990px) {
+  /* Intro */
+  .intro-suptitle {
+    font-size: 32px;
+  }
+
+  .intro-title {
+    font-size: 80px;
+  }
+
+  /* Stat */
+  .stat {
+    justify-content: center;
+  }
+
+  .stat-item {
+    flex: none;
+    width: 33.33%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    border: 0;
+  }
+
+  .stat-item:last-child {
+    border-right: 0;
+  }
+
+  /* Services */
+  .services-item {
+    width: 50%;
+  }
+
+  .services-item-border {
+    border-bottom: 0;
+  }
+
+  /* Devices */
+  .section-devices {
+    padding-bottom: 0;
+  }
+
+  /* Reviews */
+  .reviews {
+    padding: 0 60px;
+  }
+
+  .reviews-item {
+    padding-left: 175px;
+  }
+
+  /* Author */
+  .reviews {
+    padding: 0 60px;
+  }
+
+  .reviews-author-author {
+    padding-left: 70px;
+  }
+
+  /* Clients */
+  .clients {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .clients-item {
+    width: 100%;
+    padding-right: 0;
+  }
+
+  .clients-item:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Footer */
+  .footer-col-first {
+    width: 100%;
+  }
+
+  .footer-col-second,
+  .footer-col-third {
+    width: 50%;
+  }
+
+  /* Instagram */
+  .instagram {
+    justify-content: flex-start;
+  }
+
+  .instagram-item {
+    width: auto;
+    border-right: 1px solid #fff;
+  }
+}
+
+/* ======================== 770 =========================*/
+@media (max-width: 770px) {
+  /* Intro */
+  .intro {
+    min-height: 650px;
+  }
+
+  /* Nav */
+  .nav {
+    display: none;
+    width: 100%;
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    background-color: #eb8b8d;
+  }
+
+  .nav-link {
+    display: block;
+    margin: 0;
+    padding: 10px 20px;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  /* Header */
+  .header {
+    padding: 10px 0;
+  }
+
+  /* Section */
+  .section {
+    padding: 40px 0;
+  }
+
+  .section-devices {
+    padding-bottom: 0;
+  }
+
+  /* Card */
+  .card {
+    margin-top: 50px;
+    justify-content: center;
+  }
+
+  .card-item {
+    width: 100%;
+    max-width: 410px;
+    margin-bottom: 30px;
+  }
+
+  .card-item:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Slider */
+  .slider-text {
+    display: none;
+  }
+
+  .slider-item.active::before {
+    width: 50%;
+  }
+
+  /* Services */
+  .services {
+    justify-content: center;
+  }
+
+  .services-item {
+    width: 100%;
+    max-width: 400px;
+    padding-left: 55px;
+    padding-right: 0;
+  }
+
+  .services-icon {
+    left: 0px;
+  }
+
+  /* Wedo */
+  .wedo-img {
+    display: none;
+  }
+
+  .wedo-item {
+    width: 100%;
+  }
+
+  /* Reviews */
+  .reviews-item {
+    padding-left: 0;
+  }
+
+  .reviews-item-photo {
+    position: static;
+    margin: 0 auto 20px;
+  }
+
+  .reviews-item-text {
+    font-size: 16px;
+  }
+
+  .reviews-item-text-author {
+    padding-left: 20px;
+  }
+
+  .reviews-author {
+    font-size: 20px;
+  }
+
+  .reviews-author-author {
+    padding-left: 20px;
+  }
+
+  /* Works */
+
+  .works {
+    flex-wrap: wrap;
+  }
+
+  .works-col {
+    flex: none;
+    width: 50%;
+  }
+
+  /* Blog */
+  .blog {
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  .blog-item {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .blog-item:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Footer */
+  .footer-col-second,
+  .footer-col-third {
+    width: 100%;
+  }
+}
+
+/* ======================== 575 =========================*/
+@media (max-width: 575px) {
+  /* Intro */
+
+  .intro-suptitle {
+    font-size: 22px;
+  }
+
+  .intro-title {
+    font-size: 40px;
+  }
+
+  /* Section */
+
+  .section-header {
+    margin-bottom: 50px;
+  }
+
+  .section-suptitle {
+    font-size: 20px;
+  }
+
+  .section-title {
+    font-size: 24px;
+  }
+
+  .section-title::after {
+    margin: 20px auto;
+  }
+
+  /* Stat */
+  .stat-item {
+    width: 100%;
+    border-bottom: 1px solid #b5eae0;
+  }
+
+  .stat-item:last-child {
+    border-bottom: 0;
+  }
+
+  .stat-count {
+    font-size: 52px;
+  }
+
+  /* Devises */
+  .devices {
+    max-width: 320px;
+  }
+
+  .devices-item-iphone {
+    width: 180px;
+    bottom: -50px;
+    right: -30px;
+  }
+
+  /* Reviews */
+  .reviews {
+    padding: 0;
+  }
+
+  .reviews-btn {
+    top: 18%;
+  }
+
+  /* Logos */
+  .logos {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .logos-item {
+    width: 50%;
+    margin-bottom: 20px;
+  }
+
+  .logos-img {
+    margin: 0 auto;
+  }
+
+  /* Works */
+  .works-col {
+    width: 100%;
+    font-size: 0;
+  }
+
+  .works-item {
+    width: 100%; /* Встановлює ширину .works-item на 100% */
+  }
+
+  .works-item {
+    display: inline-block; /* Забезпечує ширину, що відповідає вмісту */
+    width: 100%; /* Ширина, що відповідає контейнеру */
+    box-sizing: border-box; /* Запобігає виходу елементів за межі */
+  }
+  .works-images {
+    width: 100%;
+  }
+
+  /* Reviews */
+  .reviews-btn-autor {
+    top: 25%;
+  }
+
+  .reviews-item-text-author {
+    padding-left: 50px;
+    padding-right: 40px;
+  }
+
+  .reviews-author-author {
+    padding-left: 50px;
+  }
+
+  /* Clients */
+  .clients-photo {
+    position: static;
+  }
+
+  .clients-item {
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .clients-text::before {
+    margin: 15px auto;
+  }
+
+  /* Blogs */
+  .blogs-img {
+    width: 80px;
+    height: 50px;
+  }
+
+  .blogs-title {
+    font-size: 10px;
+  }
+
+  /* Subscribe */
+  .subscribe {
+    flex-wrap: wrap;
+    max-width: none;
+  }
+
+  .subscribe-input {
+    margin-bottom: 10px;
+    border-right: 1px solid #e7e7e7;
+  }
+
+  .subscribe-input,
+  .subscribe-btn {
+    width: 100%;
+  }
 }
