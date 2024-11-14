@@ -105,6 +105,7 @@ hr {
   font-size: 30px;
   font-weight: 700;
   color: #fff;
+  cursor: pointer;
 }
 
 /* Navigation */
@@ -667,13 +668,18 @@ hr {
 }
 
 .reviews {
-  padding: 0 110px;
   position: relative;
 }
+
+.reviews .slick-slider {
+  padding: 0 110px;
+}
+
 .reviews-item {
   padding-left: 205px;
   position: relative;
 }
+
 .reviews-item-photo {
   display: block;
   border: 2px solid #95e1d3;
@@ -726,9 +732,14 @@ hr {
   margin-right: 10px;
 }
 
-.reviews-btn {
+.slick-arrow {
+  display: block;
   font-size: 0;
   color: transparent;
+
+  border: 0;
+  background: none;
+  cursor: pointer;
 
   position: absolute;
   top: 50%;
@@ -736,7 +747,11 @@ hr {
   transform: translateY(-50%);
 }
 
-.reviews-btn::after {
+.slick-arrow:focus {
+  outline: 0;
+}
+
+.slick-arrow::after {
   content: "";
   display: block;
   width: 16px;
@@ -746,12 +761,13 @@ hr {
   border-left: 2px solid #ccc;
 }
 
-.reviews-btn-prev {
+.slick-prev {
   left: 0;
   transform: rotate(-45deg);
 }
 
-.reviews-btn-next {
+.reviews-btn-next,
+.slick-next {
   right: 0;
   transform: rotate(135deg);
 }
@@ -1343,7 +1359,7 @@ hr {
   }
 
   /* Reviews */
-  .reviews {
+  .reviews .slick-slider {
     padding: 0 60px;
   }
 
@@ -1352,7 +1368,7 @@ hr {
   }
 
   /* Author */
-  .reviews {
+  .reviews .slick-slider {
     padding: 0 60px;
   }
 
@@ -1608,11 +1624,11 @@ hr {
   }
 
   /* Reviews */
-  .reviews {
+  .reviews .slick-slider {
     padding: 0;
   }
 
-  .reviews-btn {
+  .slick-arrow {
     top: 18%;
   }
 
