@@ -28,13 +28,14 @@
     <header class="header" id="header">
       <div class="container">
         <div class="header-inner">
-          <div class="header-logo">MoGo</div>
-          <nav class="nav">
-            <a class="nav-link active" href="#" target="_blank">Service</a>
-            <a class="nav-link" href="#" target="_blank">About</a>
-            <a class="nav-link" href="#" target="_blank">Work</a>
-            <a class="nav-link" href="#" target="_blank">Blog</a>
-            <a class="nav-link" href="#" target="_blank">Contact</a>
+          <div class="header-logo" data-scroll="#intro">MoGo</div>
+
+          <nav class="nav" id="nav">
+            <a class="nav-link" href="#" data-scroll="#about">About</a>
+            <a class="nav-link" href="#" data-scroll="#services">Service</a>
+            <a class="nav-link" href="#" data-scroll="#works">Work</a>
+            <a class="nav-link" href="#" data-scroll="#blog">Blog</a>
+            <a class="nav-link" href="#" data-scroll="#footer">Contact</a>
             <a class="nav-link" href="#" target="_blank"
               ><i class="fa-solid fa-cart-shopping"></i
             ></a>
@@ -43,7 +44,7 @@
             ></a>
           </nav>
 
-          <button class="nav-toggle active" type="button">
+          <button class="nav-toggle" id="nav-toggle" type="button">
             <span class="nav-toggle-item">Menu</span>
           </button>
         </div>
@@ -87,7 +88,7 @@
       </div>
 
       <!-- =================== Hidden card =================== -->
-      <section class="section section-one">
+      <section class="section section-one" id="about">
         <div class="container">
           <div class="section-header">
             <h3 class="section-suptitle">What we do</h3>
@@ -162,7 +163,7 @@
       <!-- Services -->
 
       <!-- =================== Hidden services =================== -->
-      <section class="section">
+      <section class="section" id="services">
         <div class="container">
           <div class="section-header">
             <h3 class="section-suptitle">What we do</h3>
@@ -693,7 +694,7 @@
       </div>
 
       <!-- =================== Hidden works =================== -->
-      <section class="section">
+      <section class="section" id="works">
         <div class="container">
           <div class="section-header">
             <h3 class="section-suptitle">What we do</h3>
@@ -881,7 +882,7 @@
       </section>
 
       <!-- =================== Hidden blog =================== -->
-      <sectson class="section">
+      <sectson class="section" id="blog">
         <div class="container">
           <div class="section-header-blog">
             <h3 class="section-suptitle">Our stories</h3>
@@ -1018,7 +1019,7 @@
       </section>
 
       <!-- =================== Hidden footer =================== -->
-      <footer class="footer">
+      <footer class="footer" id="footer">
         <div class="container">
           <div class="footer-inner">
             <div class="footer-col footer-col-first">
